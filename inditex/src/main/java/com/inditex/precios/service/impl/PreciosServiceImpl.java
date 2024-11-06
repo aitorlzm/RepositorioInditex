@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.inditex.precios.model.Precios;
 import com.inditex.precios.respository.PreciosRepository;
-import com.inditex.precios.service.PreciosServices;
+import com.inditex.precios.service.PreciosService;
 
 @Service
-public class PreciosServicesImpl implements PreciosServices {
+public class PreciosServiceImpl implements PreciosService {
 	
 	@Autowired
 	private PreciosRepository preciosRepository;
