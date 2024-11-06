@@ -11,7 +11,7 @@ import jakarta.persistence.Entity;
 public class Precios {
 
 	@Id
-	private Long brandId;
+	private Integer brandId;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private Integer priceList;
@@ -20,7 +20,7 @@ public class Precios {
 	private Integer priority;
 	private String currency;
 
-	public Precios(Long brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, BigInteger price,
+	public Precios(Integer brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, BigInteger price,
 			Integer productId, Integer priority, String currency) {
 		this.brandId = brandId;
 		this.startDate = startDate;
@@ -35,11 +35,11 @@ public class Precios {
 	public Precios() {
 	}
 
-	public Long getBrandId() {
+	public Integer getBrandId() {
 		return brandId;
 	}
 
-	public void setBrandId(Long brandId) {
+	public void setBrandId(Integer brandId) {
 		this.brandId = brandId;
 	}
 
