@@ -1,7 +1,7 @@
 package com.inditex.precios.service.impl;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,13 @@ public class PreciosServicesImpl implements PreciosServices {
 	private PreciosRepository preciosRepository;
 
 	@Override
-	public List<Precios> obtenerPrecioProducto(LocalDateTime startDate, LocalDateTime endDate, Long brandId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Precios> obtenerPrecioProducto(LocalDateTime applicationDate, Integer productId, Integer brandId) {
+		return preciosRepository.obtenerPrecioAplicable(productId, brandId, applicationDate);
 	}
+
+
+
+
 	
 
 }
