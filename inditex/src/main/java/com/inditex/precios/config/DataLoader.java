@@ -2,6 +2,7 @@ package com.inditex.precios.config;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,10 +23,24 @@ public class DataLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		preciosRepository.save(new Precios(1, LocalDateTime.of(2023, 5, 1, 0, 0), LocalDateTime.of(2023, 5, 31, 23, 59), 1, new BigDecimal("34.99"), 35455, 1, "EUR"));
-        preciosRepository.save(new Precios(1, LocalDateTime.of(2023, 6, 1, 0, 0), LocalDateTime.of(2023, 6, 30, 23, 59), 2, new BigDecimal("35.90"), 35455, 1, "EUR"));
-        preciosRepository.save(new Precios(1, LocalDateTime.of(2023, 6, 2, 0, 0), LocalDateTime.of(2023, 6, 30, 23, 59), 2, new BigDecimal("40.99"), 35455, 2, "EUR"));
+	       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH.mm.ss");
 
+	        preciosRepository.save(new Precios(1, LocalDateTime.parse("2020-06-14-00.00.00", formatter), 
+	                LocalDateTime.parse("2020-12-31-23.59.59", formatter), 1, new BigDecimal("35.50"), 
+	                35455, 0, "EUR"));
+
+	        preciosRepository.save(new Precios(1, LocalDateTime.parse("2020-06-14-15.00.00", formatter), 
+	                LocalDateTime.parse("2020-06-14-18.30.00", formatter), 2, new BigDecimal("25.45"), 
+	                35455, 1, "EUR"));
+
+	        preciosRepository.save(new Precios(1, LocalDateTime.parse("2020-06-15-00.00.00", formatter), 
+	                LocalDateTime.parse("2020-06-15-11.00.00", formatter), 3, new BigDecimal("30.50"), 
+	                35455, 1, "EUR"));
+
+	        preciosRepository.save(new Precios(1, LocalDateTime.parse("2020-06-15-16.00.00", formatter), 
+	                LocalDateTime.parse("2020-12-31-23.59.59", formatter), 4, new BigDecimal("38.95"), 
+	                35455, 1, "EUR"));
+	        
         System.out.println("Datos iniciales cargados en la base de datos.");
 
 	}
