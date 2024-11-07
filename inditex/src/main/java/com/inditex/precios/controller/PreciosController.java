@@ -26,7 +26,7 @@ public class PreciosController {
         this.preciosService = preciosService;
     }
     
-    @GetMapping ("/ConsultarPrecioAplicable")
+    @GetMapping ("/consultar")
 	public ResponseEntity<PreciosDTO> obtenerPrecioAplicable(
 			@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss") LocalDateTime fecha,
 	        @RequestParam("productoId") Integer productId,

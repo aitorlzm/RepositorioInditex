@@ -1,25 +1,20 @@
 package com.inditex.precios.respository;
 
-
-
-import java.time.LocalDateTime;
-import java.util.Optional;
-
+import com.inditex.precios.model.Precios;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.inditex.precios.dto.PreciosDTO;
-import com.inditex.precios.model.Precios;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
-public interface PreciosRepository extends JpaRepository<Precios, Long>{
-	
-    @Query("SELECT new com.inditex.precios.dto.PreciosDTO(p.productId, p.brandId, p.priceList, " +
-            "p.startDate, p.endDate, p.price) " +
-            "FROM Precios p WHERE p.productId = :productId AND p.brandId = :brandId " +
-            "AND :fecha BETWEEN p.startDate AND p.endDate " +
-            "ORDER BY p.priority DESC")
-     Optional<PreciosDTO> obtenerFechaAplicacion(@Param("productId") Integer productId,
-                                              @Param("brandId") Integer brandId,
-                                              @Param("fecha") LocalDateTime fecha);
+public interface PreciosRepository extends JpaRepository<Precios, Long> {
+
+    @Query(value = "SELECT * FROM precios p WHERE p.product_id = :productId AND p.brand_id = :brandId " +
+           "AND :fecha BETWEEN p.start_date AND p.end_date " +
+           "ORDER BY p.priority DESC LIMIT 1", nativeQuery = true)
+    Optional<Precios> obtenerFechaAplicacion(
+            @Param("productId") Integer productId,
+            @Param("brandId") Integer brandId,
+            @Param("fecha") LocalDateTime fecha);
 }

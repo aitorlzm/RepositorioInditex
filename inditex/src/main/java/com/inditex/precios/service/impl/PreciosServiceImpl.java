@@ -20,17 +20,13 @@ public class PreciosServiceImpl implements PreciosService {
 	public PreciosServiceImpl(PreciosRepository preciosRepository) {
 		this.preciosRepository = preciosRepository;
 	}
-	
+
 	@Override
-	public Optional<PreciosDTO> obtenerPrecioAplicable(LocalDateTime startDate, Integer productId, Integer brandId) {
-        return preciosRepository.obtenerFechaAplicacion(productId, brandId, startDate);	
+	public Optional<PreciosDTO> obtenerPrecioAplicable(LocalDateTime fecha, Integer productId, Integer brandId) {
+		return preciosRepository
+	            .obtenerFechaAplicacion(productId, brandId, fecha)
+	            .map(precio -> new PreciosDTO(precio.getProductId(), precio.getBrandId(), precio.getPriceList(),
+	                                          precio.getStartDate(), precio.getEndDate(), precio.getPrice()));
 	}
-
-
-
-
-
-
-	
 
 }
