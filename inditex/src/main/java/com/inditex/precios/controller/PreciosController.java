@@ -20,8 +20,12 @@ import com.inditex.precios.service.PreciosService;
 @RequestMapping("/api/precios")
 public class PreciosController {
 	
+	private PreciosService preciosService;
+    
     @Autowired
-    private PreciosService preciosService;
+    public PreciosController(PreciosService preciosService) {
+        this.preciosService = preciosService;
+    }
     
     @GetMapping ("/ConsultarPrecioAplicable")
 	public ResponseEntity<Precios> obtenerPrecioAplicable(
@@ -29,9 +33,12 @@ public class PreciosController {
 	        @RequestParam("productoId") Integer productId,
 	        @RequestParam("marcaId") Integer brandId){
     	
-		return preciosService.obtenerPrecioProducto(fecha, productId, brandId)
-				.map(ResponseEntity::ok)
-				.orElseGet(() -> ResponseEntity.notFound().build());
+        // Llamamos al servicio para obtener el precio aplicable
+        Optional<Precios> precioAplicable = preciosService.obtenerPrecioAplicable(fecha, productId, brandId);
+        
+        return precioAplicable.map(ResponseEntity::ok)
+        		.orElseGet(() -> ResponseEntity.notFound().build());
+
     	
 	   	
     }
