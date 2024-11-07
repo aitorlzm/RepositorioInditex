@@ -18,7 +18,9 @@ public class PreciosServiceImpl implements PreciosService {
 
 	@Override
 	public Optional<Precios> obtenerPrecioProducto(LocalDateTime applicationDate, Integer productId, Integer brandId) {
-		return preciosRepository.obtenerPrecioAplicable(productId, brandId, applicationDate);
+		//return preciosRepository.obtenerPrecioAplicable(productId, brandId, applicationDate);
+		// TO DO
+		return null;
 	}
 
 
