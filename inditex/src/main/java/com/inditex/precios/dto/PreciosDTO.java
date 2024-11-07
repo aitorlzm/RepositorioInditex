@@ -1,6 +1,6 @@
 package com.inditex.precios.dto;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class PreciosDTO {
@@ -10,10 +10,10 @@ public class PreciosDTO {
     private Integer priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private BigInteger price;
+    private BigDecimal price;
     
 	public PreciosDTO(Integer productId, Integer brandId, Integer priceList, LocalDateTime startDate,
-			LocalDateTime endDate, BigInteger price) {
+			LocalDateTime endDate, BigDecimal price) {
 		this.productId = productId;
 		this.brandId = brandId;
 		this.priceList = priceList;
@@ -62,11 +62,11 @@ public class PreciosDTO {
 		this.endDate = endDate;
 	}
 
-	public BigInteger getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigInteger price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
     

@@ -1,6 +1,6 @@
 package com.inditex.precios.model;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
@@ -22,7 +22,7 @@ public class Precios {
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private Integer priceList;
-	private BigInteger price;
+	private BigDecimal price;
 	private Integer productId;
 	private Integer priority;
 	private String currency;
@@ -34,7 +34,7 @@ public class Precios {
 
 
 
-	public Precios(Integer brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, BigInteger price,
+	public Precios(Integer brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, BigDecimal price,
 			Integer productId, Integer priority, String currency) {
 		this.brandId = brandId;
 		this.startDate = startDate;
@@ -108,13 +108,13 @@ public class Precios {
 
 
 
-	public BigInteger getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
 
 
-	public void setPrice(BigInteger price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 
