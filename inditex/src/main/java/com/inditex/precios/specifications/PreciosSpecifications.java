@@ -10,7 +10,7 @@ import jakarta.persistence.criteria.Predicate;
 
 public class PreciosSpecifications {
 	
-	public static Specification<Precios> byProductBrandAndDate(Integer productId, Integer brandId, LocalDateTime startDate) {
+	public static Specification<Precios> obtenerPreciosPorMarcaYRango(Integer productId, Integer brandId, LocalDateTime startDate) {
 		return (root, query, criteriaBuilder) -> {
 			Predicate productPredicate = criteriaBuilder.equal(root.get("productId"), productId);
             Predicate brandPredicate = criteriaBuilder.equal(root.get("brandId"), brandId);

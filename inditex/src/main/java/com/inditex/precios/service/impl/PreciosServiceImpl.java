@@ -9,19 +9,28 @@ import org.springframework.stereotype.Service;
 import com.inditex.precios.model.Precios;
 import com.inditex.precios.respository.PreciosRepository;
 import com.inditex.precios.service.PreciosService;
+import com.inditex.precios.specifications.PreciosSpecifications;
 
 @Service
 public class PreciosServiceImpl implements PreciosService {
 	
-	@Autowired
+	
 	private PreciosRepository preciosRepository;
 
-	@Override
-	public Optional<Precios> obtenerPrecioProducto(LocalDateTime applicationDate, Integer productId, Integer brandId) {
-		//return preciosRepository.obtenerPrecioAplicable(productId, brandId, applicationDate);
-		// TO DO
-		return null;
+	@Autowired
+	public PreciosServiceImpl(PreciosRepository preciosRepository) {
+		this.preciosRepository = preciosRepository;
 	}
+	
+	@Override
+	public Optional<Precios> obtenerPrecioAplicable(LocalDateTime startDate, Integer productId, Integer brandId) {
+        return preciosRepository.findAll(PreciosSpecifications.obtenerPreciosPorMarcaYRango(productId, brandId, startDate))
+        		.stream()
+        		.findFirst();
+
+	}
+
+
 
 
 
