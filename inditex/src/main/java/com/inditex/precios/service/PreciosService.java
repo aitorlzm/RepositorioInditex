@@ -8,6 +8,6 @@ import com.inditex.precios.dto.PreciosDTO;
 
 public interface PreciosService {
 	
-	Optional<PreciosDTO> obtenerPrecioAplicable(LocalDateTime startDate, Integer productId, Integer brandId);
+	Optional<PreciosDTO> obtenerTarifaAplicable(LocalDateTime startDate, Integer productId, Integer brandId);
 
 }

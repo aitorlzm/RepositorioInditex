@@ -33,7 +33,7 @@ public class PreciosController {
 	        @RequestParam("marcaId") Integer brandId){
     	
         // Llamamos al servicio para obtener el precio aplicable
-        Optional<PreciosDTO> precioAplicable = preciosService.obtenerPrecioAplicable(fecha, productId, brandId);
+        Optional<PreciosDTO> precioAplicable = preciosService.obtenerTarifaAplicable(fecha, productId, brandId);
         
         return precioAplicable.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());

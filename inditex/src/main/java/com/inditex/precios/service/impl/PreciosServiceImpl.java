@@ -22,7 +22,7 @@ public class PreciosServiceImpl implements PreciosService {
 	}
 
 	@Override
-	public Optional<PreciosDTO> obtenerPrecioAplicable(LocalDateTime fecha, Integer productId, Integer brandId) {
+	public Optional<PreciosDTO> obtenerTarifaAplicable(LocalDateTime fecha, Integer productId, Integer brandId) {
 		return preciosRepository
 	            .obtenerFechaAplicacion(productId, brandId, fecha)
 	            .map(precio -> new PreciosDTO(precio.getProductId(), precio.getBrandId(), precio.getPriceList(),
