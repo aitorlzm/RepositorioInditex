@@ -37,9 +37,7 @@ public class PreciosController {
         
         return precioAplicable.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
-
-    	
-	   	
+	
     }
 
 }
