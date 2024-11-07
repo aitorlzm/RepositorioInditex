@@ -1,7 +1,6 @@
 package com.inditex.precios.controller;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inditex.precios.model.Precios;
+import com.inditex.precios.dto.PreciosDTO;
 import com.inditex.precios.service.PreciosService;
 
 
@@ -28,16 +27,16 @@ public class PreciosController {
     }
     
     @GetMapping ("/ConsultarPrecioAplicable")
-	public ResponseEntity<Precios> obtenerPrecioAplicable(
+	public ResponseEntity<PreciosDTO> obtenerPrecioAplicable(
 			@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss") LocalDateTime fecha,
 	        @RequestParam("productoId") Integer productId,
 	        @RequestParam("marcaId") Integer brandId){
     	
         // Llamamos al servicio para obtener el precio aplicable
-        Optional<Precios> precioAplicable = preciosService.obtenerPrecioAplicable(fecha, productId, brandId);
+        Optional<PreciosDTO> precioAplicable = preciosService.obtenerPrecioAplicable(fecha, productId, brandId);
         
         return precioAplicable.map(ResponseEntity::ok)
-        		.orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
 
     	
 	   	
