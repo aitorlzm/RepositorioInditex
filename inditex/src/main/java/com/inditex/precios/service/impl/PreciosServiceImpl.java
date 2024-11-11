@@ -9,11 +9,9 @@ import com.inditex.precios.dto.PreciosDTO;
 import com.inditex.precios.respository.PreciosRepository;
 import com.inditex.precios.service.PreciosService;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Data
 @RequiredArgsConstructor
 public class PreciosServiceImpl implements PreciosService {
 	
