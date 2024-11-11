@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PreciosControllerTest" project="inditex" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="com.inditex.precios.PreciosControllerTest" time="0.258" displayname="PreciosControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]">
+    <testcase name="test1" classname="com.inditex.precios.PreciosControllerTest" time="0.229" displayname="test1()" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]/[method:test1()]"/>
+    <testcase name="test2" classname="com.inditex.precios.PreciosControllerTest" time="0.006" displayname="test2()" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]/[method:test2()]"/>
+    <testcase name="test3" classname="com.inditex.precios.PreciosControllerTest" time="0.007" displayname="test3()" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]/[method:test3()]"/>
+    <testcase name="test4" classname="com.inditex.precios.PreciosControllerTest" time="0.005" displayname="test4()" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]/[method:test4()]"/>
+    <testcase name="test5" classname="com.inditex.precios.PreciosControllerTest" time="0.005" displayname="test5()" uniqueid="[engine:junit-jupiter]/[class:com.inditex.precios.PreciosControllerTest]/[method:test5()]"/>
+  </testsuite>
+</testrun>
