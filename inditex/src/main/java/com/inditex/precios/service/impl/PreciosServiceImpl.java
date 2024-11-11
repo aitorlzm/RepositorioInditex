@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class PreciosServiceImpl implements PreciosService {
 	
 	
-	private PreciosRepository preciosRepository;
+	private final PreciosRepository preciosRepository;
 
 	@Override
 	public Optional<PreciosDTO> obtenerTarifaAplicable(LocalDateTime fecha, Integer productId, Integer brandId) {

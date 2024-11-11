@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PreciosController {
 	
-	private PreciosService preciosService;
+	private final PreciosService preciosService;
 
     @GetMapping ("/consultar")
 	public ResponseEntity<PreciosDTO> obtenerPrecioAplicable(
