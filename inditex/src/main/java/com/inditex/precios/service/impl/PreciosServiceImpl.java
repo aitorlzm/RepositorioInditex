@@ -1,5 +1,6 @@
 package com.inditex.precios.service.impl;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -22,8 +23,22 @@ public class PreciosServiceImpl implements PreciosService {
 	public Optional<PreciosDTO> obtenerTarifaAplicable(LocalDateTime fecha, Integer productId, Integer brandId) {
 		return preciosRepository
 	            .obtenerFechaAplicacion(productId, brandId, fecha)
-	            .map(precio -> new PreciosDTO(precio.getProductId(), precio.getBrandId(), precio.getPriceList(),
-	                                          precio.getStartDate(), precio.getEndDate(), precio.getPrice()));
+	            .map(precio -> {
+	                Integer productIdChecked = Optional.ofNullable(precio.getProductId())
+	                        .orElseThrow(() -> new IllegalArgumentException("El productId es null"));
+	                Integer brandIdChecked = Optional.ofNullable(precio.getBrandId())
+	                        .orElseThrow(() -> new IllegalArgumentException("El brandId es null"));
+	                Integer priceListChecked = Optional.ofNullable(precio.getPriceList())
+	                        .orElseThrow(() -> new IllegalArgumentException("El priceList es null"));
+	                LocalDateTime startDateChecked = Optional.ofNullable(precio.getStartDate())
+	                        .orElseThrow(() -> new IllegalArgumentException("El startDate es null"));
+	                LocalDateTime endDateChecked = Optional.ofNullable(precio.getEndDate())
+	                        .orElseThrow(() -> new IllegalArgumentException("El endDate es null"));
+	                BigDecimal priceChecked = Optional.ofNullable(precio.getPrice())
+	                        .orElseThrow(() -> new IllegalArgumentException("El price es null"));
+	            
+	            return new PreciosDTO(productIdChecked, brandIdChecked, priceListChecked, startDateChecked, endDateChecked, priceChecked); 
+	            });
+	            
 	}
-
 }
