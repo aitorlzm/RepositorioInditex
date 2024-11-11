@@ -7,8 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Precios {
 
 	@Id
@@ -23,92 +29,5 @@ public class Precios {
 	private Integer productId;
 	private Integer priority;
 	private String currency;
-
-	public Precios() {
-	}
-
-	public Precios(Integer brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, BigDecimal price,
-			Integer productId, Integer priority, String currency) {
-		this.brandId = brandId;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.priceList = priceList;
-		this.price = price;
-		this.productId = productId;
-		this.priority = priority;
-		this.currency = currency;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Integer getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Integer brandId) {
-		this.brandId = brandId;
-	}
-
-	public LocalDateTime getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
-	}
-
-	public LocalDateTime getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(LocalDateTime endDate) {
-		this.endDate = endDate;
-	}
-
-	public Integer getPriceList() {
-		return priceList;
-	}
-
-	public void setPriceList(Integer priceList) {
-		this.priceList = priceList;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public Integer getPriority() {
-		return priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
-	public String getCurrency() {
-		return currency;
-	}
-
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
 
 }
